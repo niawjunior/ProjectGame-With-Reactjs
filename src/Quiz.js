@@ -13,9 +13,11 @@ class Quiz extends Component{
         
         this.renderOptions = this.renderOptions.bind(this);
     }
-
+    randomNumber(min,max){
+        return Math.floor(Math.random() * (max-min+1)) +min;
+    }
     playGame() {
-
+        console.log(this.randomNumber(20,50),this.randomNumber(20,5));
         let riddle = {
             resultsArray: [8,9,10,11],
             field1: 5,
