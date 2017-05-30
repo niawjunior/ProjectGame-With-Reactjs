@@ -8,7 +8,7 @@ class QuizOptions extends Component {
         this.callParentCheckOptions = this.callParentCheckOptions.bind(this);
     }
     callParentCheckOptions(){
-        this.props.checkResults();
+        this.props.checkResults(this.props.option);
     }
     render() {
         return(

@@ -63,14 +63,14 @@ class Quiz extends Component{
         console.log(riddle);
         return riddle;
     }
-    checkResults(){
-        console.log('checkResults called');
+    checkResults(option){
+        console.log('checkResults called' +option);
     }
     renderOptions(){
         return(
             <div className="options">
                 {this.state.riddle.resultsArray.map((option,i)=>
-                <QuizOptions option={option} key={i} checkResults={this.checkResults}/>
+                <QuizOptions option={option} key={i} checkResults={(option) =>this.checkResults(option)}/>
                 )}
             </div>
         );
