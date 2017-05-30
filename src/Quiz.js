@@ -7,26 +7,31 @@ class Quiz extends Component{
     constructor(props){
         super(props);
 
-        let riddle ={
+        let riddle = this.playGame();
+
+        this.state = {riddle};
+        
+        this.renderOptions = this.renderOptions.bind(this);
+    }
+
+    playGame() {
+
+        let riddle = {
             resultsArray: [8,9,10,11],
             field1: 5,
             field2: 5,
             answer: 10
-        };
-
-        this.state = {riddle};
-
-        this.renderOptions = this.renderOptions.bind(this);
+        }
+        return riddle;
     }
     renderOptions(){
         return(
             <div className="options">
-              <QuizOptions/>
-              <QuizOptions/>
-              <QuizOptions/>
-              <QuizOptions/>
+                {this.state.riddle.resultsArray.map((option,i)=>
+                <QuizOptions option={option} key={i}/>
+                )}
             </div>
-        )
+        );
     }
     render(){
         return(
