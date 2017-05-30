@@ -19,7 +19,7 @@ class Quiz extends Component{
 
     generateRandomOptions(sum){
         let result = sum;
-        let resultsArry = [];
+        let resultsArray = [];
         let randomNumberArray = [];
 
         while(randomNumberArray.length <= 3){
@@ -35,12 +35,14 @@ class Quiz extends Component{
         if(addSubtract === 1){
 
             result += randomNumberArray[i];
+            resultsArray.push(result);
         }else{
             result -= randomNumberArray[i];
+            resultsArray.push(result);
         }
     }
 
-        return resultsArry;
+        return resultsArray;
     }
     playGame() {
         console.log(this.randomNumber(20,50),this.randomNumber(20,5));
@@ -48,6 +50,9 @@ class Quiz extends Component{
         let field2 = this.randomNumber(20,50);
         let result = field1 + field2;
         let resultsArray = this.generateRandomOptions(result);
+        resultsArray.push(result);
+        resultsArray.sort(function(a,b) {return 0.5 - Math.random()});
+        console.log(resultsArray);
         let riddle = {
             resultsArray: [8,9,10,11],
             field1: field1,
