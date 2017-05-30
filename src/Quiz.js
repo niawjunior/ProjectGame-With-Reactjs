@@ -18,11 +18,14 @@ class Quiz extends Component{
     }
     playGame() {
         console.log(this.randomNumber(20,50),this.randomNumber(20,5));
+        let field1 = this.randomNumber(20,50);
+        let field2 = this.randomNumber(20,50);
+        let result = field1 + field2;
         let riddle = {
             resultsArray: [8,9,10,11],
-            field1: 5,
-            field2: 5,
-            answer: 10
+            field1: field1,
+            field2: field2,
+            answer: result
         }
         return riddle;
     }
