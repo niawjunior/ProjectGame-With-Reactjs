@@ -12,6 +12,7 @@ class Quiz extends Component{
         this.state = {riddle};
         
         this.renderOptions = this.renderOptions.bind(this);
+        this.checkResults = this.checkResults.bind(this);
     }
     randomNumber(min,max){
         return Math.floor(Math.random() * (max-min+1)) +min;
@@ -62,11 +63,14 @@ class Quiz extends Component{
         console.log(riddle);
         return riddle;
     }
+    checkResults(){
+        console.log('checkResults called');
+    }
     renderOptions(){
         return(
             <div className="options">
                 {this.state.riddle.resultsArray.map((option,i)=>
-                <QuizOptions option={option} key={i}/>
+                <QuizOptions option={option} key={i} checkResults={this.checkResults}/>
                 )}
             </div>
         );
