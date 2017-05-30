@@ -83,6 +83,14 @@ class Quiz extends Component{
             </div>
         );
     }
+
+    renderMessage(){
+        if(this.state.correct){
+            return <h3>ยินดีด้วย!</h3>
+        }else{
+            return <h3>เสียใจด้วย!</h3>
+        }
+    }
     render(){
         return(
             <center>
@@ -96,6 +104,9 @@ class Quiz extends Component{
                 Correct: {this.state.correct ? "True" : "False"}<br/>
                 <div className="play-again">
                 GameOver:{this.state.gameOver ? "True" : "False"}<br/>
+                <div className="after-correct">
+                    {this.renderMessage()}
+                </div>
                     <a className="button">เล่นอีกครั้ง</a>
                 </div>
             </div>
