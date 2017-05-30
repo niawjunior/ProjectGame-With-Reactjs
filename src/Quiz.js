@@ -8,7 +8,8 @@ class Quiz extends Component{
         super(props);
 
         let riddle = this.playGame();
-
+        let correct = false;
+        let gameOver = false;
         this.state = {riddle};
         
         this.renderOptions = this.renderOptions.bind(this);
@@ -64,7 +65,14 @@ class Quiz extends Component{
         return riddle;
     }
     checkResults(option){
-        console.log('checkResults called' +option);
+        console.log('คลิีกที่คำตอบ ' +option);
+        if(this.state.riddle.answer === option){
+            console.log('ถูกต้อง');
+            this.setState({correct: true, gameOver: true});
+        }else{
+            console.log('ผิด');
+            this.setState({correct: false, gameOver: true});
+        }
     }
     renderOptions(){
         return(
@@ -85,7 +93,9 @@ class Quiz extends Component{
                     <p className="question">ข้อใดคือผลลัพธ์ของ <span className="text-info">{this.state.riddle.field1}</span> บวก <span className="text-info">{this.state.riddle.field2}</span>?</p>
                     {this.renderOptions()}
                 </div>
+                Correct: {this.state.correct ? "True" : "False"}<br/>
                 <div className="play-again">
+                GameOver:{this.state.gameOver ? "True" : "False"}<br/>
                     <a className="button">เล่นอีกครั้ง</a>
                 </div>
             </div>
