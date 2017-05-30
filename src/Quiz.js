@@ -64,6 +64,11 @@ class Quiz extends Component{
             answer: result
         }
         console.log(riddle);
+        if(this.state && this.state.gameOver){
+            this.setState({riddle: riddle})
+        }else{
+            return riddle;
+        }
         return riddle;
     }
     checkResults(option){
