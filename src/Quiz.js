@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import QuizOptions from'./QuizOptions';
+import logo from './logo.svg';
+import './App.css';
 class Quiz extends Component{
 
     constructor(props){
@@ -28,7 +30,10 @@ class Quiz extends Component{
     }
     render(){
         return(
+            <center>
             <div className="quiz">
+                          <img src={logo} className="App-logo" alt="logo" />
+          <h2>คณิตศาสตร์หรรษา</h2>
                 <div className="quiz-content">
                     <p className="question">ข้อใดคือผลลัพธ์ของ <span className="text-info">5</span> บวก <span className="text-info">5</span>?</p>
                     {this.renderOptions()}
@@ -37,6 +42,7 @@ class Quiz extends Component{
                     <a className="button">เล่นอีกครั้ง</a>
                 </div>
             </div>
+            </center>
         );
     }
 }
