@@ -114,7 +114,7 @@ class Quiz extends Component{
                 </div>
                 {/*Correct: {this.state.correct ? "True" : "False"}<br/>
                 GameOver:{this.state.gameOver ? "True" : "False"}<br/>*/}
-                <div className={classNames('after',{'hide': !this.state.gameOver},{'wrong': !this.state.correct}, {'correct': this.state.correct})}>
+                <div className={classNames('after',{'hide': !this.state.gameOver},{'wrong animated zoomInUp': !this.state.correct}, {'correct animated zoomInUp': this.state.correct})}>
                     {this.renderMessage()}
                 </div>
                 <div className="play-again">
