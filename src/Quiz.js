@@ -54,7 +54,7 @@ class Quiz extends Component{
         resultsArray.sort(function(a,b) {return 0.5 - Math.random()});
         console.log(resultsArray);
         let riddle = {
-            resultsArray: [8,9,10,11],
+            resultsArray: resultsArray,
             field1: field1,
             field2: field2,
             answer: result
